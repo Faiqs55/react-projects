@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import NavMenus from "./NavMenus";
+import NavActions from "./NavActions";
 
 const Nav = () => {
   const [toggleDropDown, setToggleDropDown] = useState(false);
@@ -12,21 +13,10 @@ const Nav = () => {
     setInputFocus((prev) => !prev);
   };
   return (
-    <nav className="flex py-5 xl:py-0 w-full justify-between fixed top-0 items-center shadow-md p-5 xl:px-24 z-[90] h-[10vh] gap-2 xl:gap-0">
+    <nav className="bg-white flex py-5 xl:py-0 w-full justify-between fixed top-0 items-center shadow-md p-5 xl:px-24 z-[1000] h-[10vh] gap-2 xl:gap-0">
       <h1 className="font-bold text-lg md:text-2xl font-Sofadi">Urban Craft</h1>
       <NavMenus toggleDropDown={toggleDropDown} toggleHandler={toggleHandler}/>
-      <div className="xl:flex gap-5 items-center hidden">
-        <div className="flex gap-2 items-center bg-gray-200 rounded-full py-2 px-4">
-          <i class="fa-solid fa-magnifying-glass text-gray-500"></i>
-          <input
-            className="outline-none bg-transparent w-full px-4"
-            type="text"
-            placeholder="Search for products"
-          />
-        </div>
-        <i class="fa-sharp-duotone fa-solid fa-cart-shopping text-lg text-gray-600"></i>
-        <i class="fa-sharp-duotone fa-solid fa-user-tie text-lg text-gray-600"></i>
-      </div>
+      <NavActions/>
       {!showDrawer && (
         <i
           class="fa-sharp fa-solid fa-bars xl:invisible text-2xl"
