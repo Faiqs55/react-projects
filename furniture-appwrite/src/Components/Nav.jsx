@@ -14,7 +14,7 @@ const Nav = () => {
   };
   return (
     <nav className="bg-white flex py-5 xl:py-0 w-full justify-between fixed top-0 items-center shadow-md p-5 xl:px-24 z-[1000] h-[10vh] gap-2 xl:gap-0">
-      <h1 className="font-bold text-lg md:text-2xl font-Sofadi">Urban Craft</h1>
+      <h1 className="font-bold text-amber-800 text-lg md:text-2xl font-Sofadi">Urban Craft</h1>
       <NavMenus toggleDropDown={toggleDropDown} toggleHandler={toggleHandler} />
       <NavActions />
       {!showDrawer && (

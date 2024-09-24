@@ -3,11 +3,11 @@ import React from 'react'
 const NavMenus = ({toggleDropDown, toggleHandler}) => {
   return (
     <ul className="xl:flex gap-6 flex-1 justify-center items-center flex-row hidden">
-        <li className="text-gray-500 font-semibold">
+        <li className="text-gray-500 hover:text-amber-700 font-semibold">
           <a href="/">Home</a>
         </li>
         <li
-          className="text-gray-500 font-semibold cursor-pointer flex items-center gap-1 relative"
+          className="text-gray-500 hover:text-amber-700 font-semibold cursor-pointer flex items-center gap-1 relative"
           onClick={toggleHandler}
         >
           Shop
@@ -41,13 +41,13 @@ const NavMenus = ({toggleDropDown, toggleHandler}) => {
             </ul>
           }
         </li>
-        <li className="text-gray-500 font-semibold">
+        <li className="text-gray-500 hover:text-amber-700 font-semibold">
           <a href="/">Offers</a>
         </li>
-        <li className="text-gray-500 font-semibold">
+        <li className="text-gray-500 hover:text-amber-700 font-semibold">
           <a href="/">Contact Us</a>
         </li>
-        <li className="text-gray-500 font-semibold">
+        <li className="text-gray-500 hover:text-amber-700 font-semibold">
           <a href="/">Blog</a>
         </li>
       </ul>

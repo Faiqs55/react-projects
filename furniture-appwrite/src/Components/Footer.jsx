@@ -2,10 +2,10 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="pt-7 pb-5 border-t-2 border-amber-700 w-full px-5 lg:px-24">
+    <footer className="pt-7 pb-5 border-t-[1px] border-amber-700 w-full px-5 lg:px-24">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3">
       <div className="flex flex-col gap-3">
-        <h1 className="text-2xl font-Sofadi font-bold">Urban Craft</h1>
+        <h1 className="text-2xl font-Sofadi font-bold text-amber-800">Urban Craft</h1>
         <p className="text-sm text-gray-500">
           Worldwide Furniture store since 1947. We Sell Over 1000+ branded
           Products on Our Website

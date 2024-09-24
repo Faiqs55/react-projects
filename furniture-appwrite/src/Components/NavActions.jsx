@@ -11,8 +11,8 @@ const NavActions = () => {
             placeholder="Search for products"
           />
         </div>
-        <i class="fa-sharp-duotone fa-solid fa-cart-shopping text-lg text-gray-600"></i>
-        <i class="fa-sharp-duotone fa-solid fa-user-tie text-lg text-gray-600"></i>
+        <i class="fa-sharp-duotone fa-solid fa-cart-shopping text-lg text-amber-800"></i>
+        <i class="fa-sharp-duotone fa-solid fa-user-tie text-lg text-amber-800"></i>
       </div>
   )
 }

@@ -1,5 +1,9 @@
 import React from 'react'
 import Carousel from '../Components/Carousel'
+import Features from '../Components/Features';
+import Gallery from '../Components/Gallery';
+import CategoryCard from '../Components/CategoryCard';
+import { categories } from '../assets';
 
 const Home = () => {
   const imgs = [
@@ -10,6 +14,8 @@ const Home = () => {
   return (
     <main className='mt-[17vh]'>
       <Carousel imgs={imgs} />
+      <Features/>
+      <Gallery title={'Sofa Set'} subtitle={'Crafted with love Specially for you'}/>
     </main>
   )
 }
