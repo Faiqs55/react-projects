@@ -2,8 +2,7 @@ import React from 'react'
 import Carousel from '../Components/Carousel'
 import Features from '../Components/Features';
 import Gallery from '../Components/Gallery';
-import CategoryCard from '../Components/CategoryCard';
-import { categories } from '../assets';
+import { categories, products } from '../assets';
 
 const Home = () => {
   const imgs = [
@@ -15,7 +14,8 @@ const Home = () => {
     <main className='mt-[17vh]'>
       <Carousel imgs={imgs} />
       <Features/>
-      <Gallery title={'Sofa Set'} subtitle={'Crafted with love Specially for you'}/>
+      <Gallery title={'Sofa Set'} subtitle={'Crafted with love Specially for you'} card={'category'} data={categories}/>
+      <Gallery title={'Popular Picks in Sofa'} subtitle={'Crafted with love Specially for you'} card={'product'} data={products} />
     </main>
   )
 }
