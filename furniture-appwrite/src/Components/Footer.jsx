@@ -3,8 +3,8 @@ import React from "react";
 const Footer = () => {
   return (
     <footer className="pt-7 pb-5 border-t-[1px] border-amber-700 w-full px-5 lg:px-24">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3">
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-wrap sm:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3 w-full">
+      <div className="flex flex-col gap-3 mb-2 sm:mb-0">
         <h1 className="text-2xl font-Sofadi font-bold text-amber-800">Urban Craft</h1>
         <p className="text-sm text-gray-500">
           Worldwide Furniture store since 1947. We Sell Over 1000+ branded
@@ -76,7 +76,7 @@ const Footer = () => {
           </li>
         </ul>
       </div>
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-3 self-center">
         <h1 className="font-bold">Stay Updated</h1>
         <div className="flex items-center px-4 py-2 rounded-full gap-3 text-gray-400 font-semibold bg-gray-200">
           <i class="fa-solid fa-envelope"></i>
