@@ -7,13 +7,13 @@ const ProductCard = (props) => {
       <div className="h-[300px] relative">
         {likedToggle && (
           <i 
-          class="fa-solid fa-heart absolute right-4 top-4 p-2 bg-slate-400 cursor-pointer rounded-full text-white"
+          className="fa-solid fa-heart absolute right-4 top-4 p-2 bg-slate-400 cursor-pointer rounded-full text-white"
            onClick={() => setLikedToggle(prev => !prev)}
           ></i>
         )}
         {!likedToggle && (
           <i 
-          class="fa-regular fa-heart absolute right-4 top-4 p-2 bg-slate-400 cursor-pointer rounded-full text-white"
+          className="fa-regular fa-heart absolute right-4 top-4 p-2 bg-slate-400 cursor-pointer rounded-full text-white"
           onClick={() => setLikedToggle(prev => !prev)}
           ></i>
         )}
@@ -31,7 +31,7 @@ const ProductCard = (props) => {
               {props.subTitle.slice(0, 23)}...
             </span>
           </div>
-          <i class="border-[1px] border-gray-200 text-amber-700 cursor-pointer rounded-lg p-2 text-center fa-sharp-duotone fa-solid fa-cart-shopping text-lg"></i>
+          <i className="border-[1px] border-gray-200 text-amber-700 cursor-pointer rounded-lg p-2 text-center fa-sharp-duotone fa-solid fa-cart-shopping text-lg"></i>
         </div>
         <div className="flex justify-between items-center w-full mt-1">
           <div className="flex gap-2 items-center">

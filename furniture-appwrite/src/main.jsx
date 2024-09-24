@@ -7,10 +7,12 @@ import BreadCrumbs from './Components/BreadCrumbs.jsx'
 import Footer from './Components/Footer.jsx'
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
+  // <StrictMode>
+  <>
     <Nav/>
     <BreadCrumbs/>
     <Home />
     <Footer/>
-  </StrictMode>,
+    </>
+  // </StrictMode>,
 )

@@ -57,7 +57,7 @@ export const products = [
        reviews: []
     },
     {
-       id: 1, 
+       id: 2, 
        mainIMG: 'https://images.pexels.com/photos/1148955/pexels-photo-1148955.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
        images: [],
        name: 'Home Heaven',
@@ -72,7 +72,7 @@ export const products = [
        reviews: []
     },
     {
-       id: 1, 
+       id: 3, 
        mainIMG: 'https://images.pexels.com/photos/10567019/pexels-photo-10567019.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
        images: [],
        name: 'Cozy Nook',
@@ -87,7 +87,7 @@ export const products = [
        reviews: []
     },
     {
-       id: 1, 
+       id: 4, 
        mainIMG: 'https://images.pexels.com/photos/20794782/pexels-photo-20794782/free-photo-of-retro-chairs-on-rug.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
        images: [],
        name: 'Urban Charm',
@@ -102,7 +102,7 @@ export const products = [
        reviews: []
     },
     {
-       id: 1, 
+       id: 5, 
        mainIMG: 'https://images.pexels.com/photos/5378633/pexels-photo-5378633.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
        images: [],
        name: 'Rustic treat',
@@ -117,7 +117,7 @@ export const products = [
        reviews: []
     },
     {
-       id: 1, 
+       id: 6, 
        mainIMG: 'https://images.pexels.com/photos/5644692/pexels-photo-5644692.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
        images: [],
        name: 'Sleek Style',
@@ -132,7 +132,7 @@ export const products = [
        reviews: []
     },
     {
-       id: 1, 
+       id: 7, 
        mainIMG: 'https://images.pexels.com/photos/10095861/pexels-photo-10095861.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
        images: [],
        name: 'Tranquil Vibes',
@@ -147,7 +147,7 @@ export const products = [
        reviews: []
     },
     {
-       id: 1, 
+       id: 8, 
        mainIMG: 'https://images.pexels.com/photos/15364453/pexels-photo-15364453/free-photo-of-corner-in-the-attic.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
        images: [],
        name: 'Harmony Home',

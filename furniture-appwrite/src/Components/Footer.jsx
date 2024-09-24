@@ -11,11 +11,11 @@ const Footer = () => {
           Products on Our Website
         </p>
         <span className="text-sm text-gray-600 flex items-center gap-2">
-          <i class=" text-amber-700 fa-sharp-duotone fa-solid fa-location-dot"></i>{" "}
+          <i className=" text-amber-700 fa-sharp-duotone fa-solid fa-location-dot"></i>{" "}
           Punjab, Lahore Pakistan
         </span>
         <span className="text-sm text-gray-600 flex items-center gap-2">
-          <i class=" text-amber-700 fa-sharp-duotone fa-solid fa-phone"></i> +92
+          <i className=" text-amber-700 fa-sharp-duotone fa-solid fa-phone"></i> +92
           3253550555
         </span>
         <span className="text-sm text-gray-600 flex items-center gap-2">
@@ -79,7 +79,7 @@ const Footer = () => {
       <div className="flex flex-col gap-3 self-center">
         <h1 className="font-bold">Stay Updated</h1>
         <div className="flex items-center px-4 py-2 rounded-full gap-3 text-gray-400 font-semibold bg-gray-200">
-          <i class="fa-solid fa-envelope"></i>
+          <i className="fa-solid fa-envelope"></i>
           <input className="bg-transparent outline-none" placeholder="Enter Your Email" type="text" />
         </div>
         <button className="bg-amber-800 text-white self-start px-5 py-1 font-semibold rounded-full">Subscribe</button>

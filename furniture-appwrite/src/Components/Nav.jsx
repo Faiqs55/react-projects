@@ -19,7 +19,7 @@ const Nav = () => {
       <NavActions />
       {!showDrawer && (
         <i
-          class="fa-sharp fa-solid fa-bars xl:invisible text-2xl"
+          className="fa-sharp fa-solid fa-bars xl:invisible text-2xl"
           onClick={() => setShowDrawer((prev) => !prev)}
         ></i>
       )}
@@ -31,12 +31,12 @@ const Nav = () => {
         } transition-all duration-500`}
       >
         <i
-          class="fa-sharp fa-solid fa-bars self-end text-2xl cursor-pointer mb-5"
+          className="fa-sharp fa-solid fa-bars self-end text-2xl cursor-pointer mb-5"
           onClick={() => setShowDrawer((prev) => !prev)}
         ></i>
         <div className="flex flex-col gap-3">
           <div className="flex gap-2 items-center bg-gray-200 rounded-md border-[1px] border-gray-300 py-2 px-4 w-full">
-            <i class="fa-solid fa-magnifying-glass text-gray-500"></i>
+            <i className="fa-solid fa-magnifying-glass text-gray-500"></i>
             <input
               onFocus={handleFocus}
               onBlur={() => setInputFocus((prev) => !prev)}
@@ -47,11 +47,11 @@ const Nav = () => {
           </div>
           <span className="text-gray-500 font-semibold flex gap-2 items-center border-[1px] border-gray-300 bg-gray-200 p-2 rounded-md">
             Your Cart
-            <i class="fa-sharp-duotone fa-solid fa-cart-shopping text-lg text-gray-600"></i>
+            <i className="fa-sharp-duotone fa-solid fa-cart-shopping text-lg text-gray-600"></i>
           </span>
           <span className="text-gray-500 font-semibold flex gap-2 items-center border-[1px] border-gray-300 bg-gray-200 p-2 rounded-md">
             Profile
-            <i class="fa-sharp-duotone fa-solid fa-user-tie text-lg text-gray-600"></i>
+            <i className="fa-sharp-duotone fa-solid fa-user-tie text-lg text-gray-600"></i>
           </span>
         </div>
 
@@ -68,10 +68,10 @@ const Nav = () => {
             <span className="self-start flex gap-2 items-center">
               Shop
               {!toggleDropDown && (
-                <i class="fa-solid fa-angle-down text-xs mt-[2px]"></i>
+                <i className="fa-solid fa-angle-down text-xs mt-[2px]"></i>
               )}
               {toggleDropDown && (
-                <i class="fa-solid fa-angle-up text-xs mt-[2px]"></i>
+                <i className="fa-solid fa-angle-up text-xs mt-[2px]"></i>
               )}
             </span>
 

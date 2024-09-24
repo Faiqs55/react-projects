@@ -22,11 +22,11 @@ const Carousel = ({ imgs }) => {
           Buy Now
         </button>
         <i
-          class="fa-solid fa-angle-left absolute top-[50%] translate-[-50%] left-0 ml-5 md:ml-24 md:text-xl bg-[rgba(0,0,0,0.6)] p-3 rounded-full cursor-pointer"
+          className="fa-solid fa-angle-left absolute top-[50%] translate-[-50%] left-0 ml-5 md:ml-24 md:text-xl bg-[rgba(0,0,0,0.6)] p-3 rounded-full cursor-pointer"
           onClick={prevSlide}
         ></i>
         <i
-          class="fa-solid fa-angle-right absolute top-[50%] translate-[-50%] right-0 mr-5 md:mr-24 md:text-xl bg-[rgba(0,0,0,0.6)] p-3 rounded-full cursor-pointer"
+          className="fa-solid fa-angle-right absolute top-[50%] translate-[-50%] right-0 mr-5 md:mr-24 md:text-xl bg-[rgba(0,0,0,0.6)] p-3 rounded-full cursor-pointer"
           onClick={nextSlide}
         ></i>
       </div>

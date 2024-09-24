@@ -12,10 +12,10 @@ const NavMenus = ({toggleDropDown, toggleHandler}) => {
         >
           Shop
           {!toggleDropDown && (
-            <i class="fa-solid fa-angle-down text-xs mt-[2px]"></i>
+            <i className="fa-solid fa-angle-down text-xs mt-[2px]"></i>
           )}
           {toggleDropDown && (
-            <i class="fa-solid fa-angle-up text-xs mt-[2px]"></i>
+            <i className="fa-solid fa-angle-up text-xs mt-[2px]"></i>
           )}
           {
             <ul

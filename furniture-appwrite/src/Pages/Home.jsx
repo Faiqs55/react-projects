@@ -15,7 +15,7 @@ const Home = () => {
       <Carousel imgs={imgs} />
       <Features/>
       <Gallery title={'Sofa Set'} subtitle={'Crafted with love Specially for you'} card={'category'} data={categories}/>
-      <Gallery title={'Popular Picks in Sofa'} subtitle={'Crafted with love Specially for you'} card={'product'} data={products} />
+      <Gallery title={'Popular Picks in Sofa'} subtitle={'Crafted with love Specially for you'} nav={true} card={'product'} data={products.slice(0,8)} />
       <Gallery title={'Recently Viewed'} subtitle={'Things you are keeping eye on'} card={'product'} data={products.slice(0,4)} />
     </main>
   )
