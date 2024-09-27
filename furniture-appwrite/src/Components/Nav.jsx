@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import NavMenus from "./NavMenus";
 import NavActions from "./NavActions";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   const [toggleDropDown, setToggleDropDown] = useState(false);
@@ -57,9 +58,9 @@ const Nav = () => {
 
         <ul className="flex flex-col gap-3">
           <li className="text-gray-500 font-semibold border-[1px] p-2 rounded-md bg-gray-200 hover:bg-gray-300 border-gray-300">
-            <a href="/" className="block">
+            <Link to="/" className="block">
               Home
-            </a>
+            </Link>
           </li>
           <li
             className="text-gray-500 font-semibold cursor-pointer flex flex-col gap-1 relative border-[1px] p-2 rounded-md bg-gray-200 border-gray-300"
@@ -82,7 +83,7 @@ const Nav = () => {
                 } flex flex-col gap-2 transition-all duration-200`}
               >
                 <li className="hover:underline hover:text-gray-600">
-                  <a href="">All</a>
+                  <Link to="/shop">All</Link>
                 </li>
                 <li className="hover:underline hover:text-gray-600">
                   <a href="">Sofa</a>

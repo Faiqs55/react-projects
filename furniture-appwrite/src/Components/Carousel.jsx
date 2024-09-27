@@ -31,7 +31,7 @@ const Carousel = ({ imgs }) => {
         ></i>
       </div>
       <div
-        className="min-w-full min-h-full flex"
+        className="min-w-full min-h-full flex transition-all duration-500"
         style={{ transform: `translateX(-${current * 100}%)` }}
       >
         {imgs.map((img) => (

@@ -1,10 +1,11 @@
 import React from 'react'
+import { Link, NavLink } from 'react-router-dom'
 
 const NavMenus = ({toggleDropDown, toggleHandler}) => {
   return (
     <ul className="xl:flex gap-6 flex-1 justify-center items-center flex-row hidden">
         <li className="text-gray-500 hover:text-amber-700 font-semibold">
-          <a href="/">Home</a>
+          <NavLink to={'/'}>Home</NavLink>
         </li>
         <li
           className="text-gray-500 hover:text-amber-700 font-semibold cursor-pointer flex items-center gap-1 relative"
@@ -24,7 +25,7 @@ const NavMenus = ({toggleDropDown, toggleHandler}) => {
               } flex flex-col gap-2 transition-all ease-in-out duration-300`}
             >
               <li className="hover:underline hover:text-gray-600">
-                <a href="">All</a>
+                <NavLink to={'/shop'}>All</NavLink>
               </li>
               <li className="hover:underline hover:text-gray-600">
                 <a href="">Sofa</a>
