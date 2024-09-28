@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const ProductCard = (props) => {
   const [likedToggle, setLikedToggle] = useState(false);
   return (
-    <div className="flex flex-col">
+    <Link to={'/shop/product'} className="flex flex-col">
       <div className="h-[300px] relative">
         {likedToggle && (
           <i 
@@ -45,7 +46,7 @@ const ProductCard = (props) => {
           </span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
