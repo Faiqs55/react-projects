@@ -5,6 +5,7 @@ import Gallery from '../Components/Gallery';
 import { categories, products } from '../assets';
 
 const Home = () => {
+  
   const imgs = [
     'https://images.pexels.com/photos/20337840/pexels-photo-20337840/free-photo-of-view-of-a-loft-style-living-room-with-a-brown-leather-sofa.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     'https://images.pexels.com/photos/189333/pexels-photo-189333.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',

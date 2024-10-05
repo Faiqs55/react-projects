@@ -2,8 +2,11 @@ import tro from './tro.svg';
 import warr from './warr.svg';
 import ship from './ship.svg';
 import cus from './cus.svg';
+import google from './google.svg';
+import facebook from './fb.svg';
+import discord from './dis.svg';
 
-export const features = {tro, warr, ship, cus};
+export const features = {tro, warr, ship, cus, google, facebook, discord};
 
 export const categories = [
     {

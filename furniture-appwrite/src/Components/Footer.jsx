@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="pt-7 pb-5 border-t-[1px] border-amber-700 w-full px-5 lg:px-24">
+    <footer className="pt-7 bg-white pb-5 border-t-[1px] border-amber-700 w-full px-5 lg:px-24">
       <div className="flex flex-wrap sm:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3 w-full">
       <div className="flex flex-col gap-3 mb-2 sm:mb-0">
         <h1 className="text-2xl font-Sofadi font-bold text-amber-800">Urban Craft</h1>

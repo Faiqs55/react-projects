@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import NavMenus from "./NavMenus";
 import NavActions from "./NavActions";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Nav = () => {
+  const auth = useSelector((state) => state.auth);
   const [toggleDropDown, setToggleDropDown] = useState(false);
   const [inputFocus, setInputFocus] = useState(false);
   const [showDrawer, setShowDrawer] = useState(false);
@@ -15,9 +17,19 @@ const Nav = () => {
   };
   return (
     <nav className="bg-white flex py-5 xl:py-0 w-full justify-between fixed top-0 items-center shadow-md p-5 xl:px-24 z-[1000] h-[10vh] gap-2 xl:gap-0">
-      <h1 className="font-bold text-amber-800 text-lg md:text-2xl font-Sofadi">Urban Craft</h1>
+      <h1 className="font-bold text-amber-800 text-lg md:text-2xl font-Sofadi">
+        Urban Craft
+      </h1>
       <NavMenus toggleDropDown={toggleDropDown} toggleHandler={toggleHandler} />
-      <NavActions />
+      {auth.loggedIn && <NavActions />}
+      {!auth.loggedIn && (
+        <Link
+          to={"/login"}
+          className="invisible xl:visible uppercase px-6 py-1 border-2 border-amber-800 text-amber-800 rounded-lg"
+        >
+          Login
+        </Link>
+      )}
       {!showDrawer && (
         <i
           className="fa-sharp fa-solid fa-bars xl:invisible text-2xl"
@@ -28,7 +40,7 @@ const Nav = () => {
         className={`absolute top-0 z-[100] ${
           showDrawer ? "right-0" : "-right-60"
         } bg-gray-100 h-[100vh] p-5 flex flex-col gap-3 ${
-          inputFocus ? "w-[300px]" : "w-[200px]"
+          inputFocus ? "w-[300px]" : "w-[220px]"
         } transition-all duration-500`}
       >
         <i
@@ -46,17 +58,45 @@ const Nav = () => {
               placeholder="Search for products"
             />
           </div>
-          <span className="text-gray-500 font-semibold flex gap-2 items-center border-[1px] border-gray-300 bg-gray-200 p-2 rounded-md">
-            Your Cart
-            <i className="fa-sharp-duotone fa-solid fa-cart-shopping text-lg text-gray-600"></i>
-          </span>
-          <span className="text-gray-500 font-semibold flex gap-2 items-center border-[1px] border-gray-300 bg-gray-200 p-2 rounded-md">
-            Profile
-            <i className="fa-sharp-duotone fa-solid fa-user-tie text-lg text-gray-600"></i>
-          </span>
+          {auth.loggedIn && (
+            <span
+              onClick={() => {
+                setShowDrawer((prev) => !prev);
+              }}
+              className="text-gray-500 font-semibold flex gap-2 items-center border-[1px] border-gray-300 bg-gray-200 p-2 rounded-md"
+            >
+              Your Cart
+              <i className="fa-sharp-duotone fa-solid fa-cart-shopping text-lg text-gray-600"></i>
+            </span>
+          )}
+          {auth.loggedIn && (
+            <span
+              onClick={() => {
+                setShowDrawer((prev) => !prev);
+              }}
+              className="text-gray-500 font-semibold flex gap-2 items-center border-[1px] border-gray-300 bg-gray-200 p-2 rounded-md"
+            >
+              Profile
+              <i className="fa-sharp-duotone fa-solid fa-user-tie text-lg text-gray-600"></i>
+            </span>
+          )}
+          {!auth.loggedIn && (
+            <Link
+              to={"/login"}
+              onClick={() => setShowDrawer((prev) => !prev)}
+              className="text-amber-800 border-[1px] border-amber-800 font-semibold bg-gray-200 self-starts px-4 rounded-lg py-1"
+            >
+              LOGIN
+            </Link>
+          )}
         </div>
 
-        <ul className="flex flex-col gap-3">
+        <ul
+          className="flex flex-col gap-3"
+          onClick={() => {
+            setShowDrawer((prev) => !prev);
+          }}
+        >
           <li className="text-gray-500 font-semibold border-[1px] p-2 rounded-md bg-gray-200 hover:bg-gray-300 border-gray-300">
             <Link to="/" className="block">
               Home
@@ -64,7 +104,10 @@ const Nav = () => {
           </li>
           <li
             className="text-gray-500 font-semibold cursor-pointer flex flex-col gap-1 relative border-[1px] p-2 rounded-md bg-gray-200 border-gray-300"
-            onClick={toggleHandler}
+            onClick={() => {
+              setShowDrawer((prev) => !prev);
+              toggleHandler();
+            }}
           >
             <span className="self-start flex gap-2 items-center">
               Shop
@@ -78,6 +121,9 @@ const Nav = () => {
 
             {
               <ul
+                onClick={() => {
+                  setShowDrawer((prev) => !prev);
+                }}
                 className={`rounded-md py-2 px-3 ${
                   toggleDropDown ? "block" : "hidden"
                 } flex flex-col gap-2 transition-all duration-200`}
