@@ -40,10 +40,10 @@ const App = () => {
 
   if (loading) {
     return (
-      <div role="status">
+      <div role="status" className="translate-x-[-50%] translate-y-[-50%] absolute top-[50%] left-[50%]">
         <svg
           aria-hidden="true"
-          className="w-10 h-10 text-amber-800 animate-spin fill-amber-600 absolute top-[50%] left-[50%]"
+          className="w-10 h-10 text-amber-800 animate-spin fill-amber-600"
           viewBox="0 0 100 101"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
