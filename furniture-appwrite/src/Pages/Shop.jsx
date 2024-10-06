@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import Filter from "../Components/Filter";
-import { products } from "../assets";
 import ProductCard from "../Components/ProductCard";
+import { useSelector } from "react-redux";
 
 const Shop = () => {
   const [show, setShow] = useState(false);
+  const products = useSelector(state => state.products.allProducts);
   
   return (
     <main className="mt-[17vh] px-5 lg:px-24 py-5">
@@ -22,8 +23,17 @@ const Shop = () => {
       <div className="flex gap-5 mt-5">
         <Filter overlayShow={{show, setShow}}/>
         <div className="grid w-full sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-7">
-          {products.map((pro) => (
-            <ProductCard key={pro.id} {...pro} />
+          {products.length < 1 && [1,2,3,4,5,6,7,8,9,10].map(item => (
+             <div
+             key={item}
+             role="status"
+             className="flex items-center justify-center h-56 max-w-sm bg-gray-300 rounded-lg animate-pulse"
+           >
+             <span className="sr-only">Loading...</span>
+           </div>
+          ))}
+          {products.length > 0 && products.map((pro) => (
+            <ProductCard key={pro.$id} {...pro} />
           ))}
         </div>
       </div>

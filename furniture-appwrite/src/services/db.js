@@ -28,6 +28,23 @@ class DbServices {
             throw error;
         }
     }
+
+    // GET ALL PRODUCTS
+    async getAllProducts(){
+        try {
+            const products = await this.database.listDocuments(
+                envVARS.databaseID,
+                envVARS.productsID
+            );
+
+            if(products){
+                return products;
+            }
+
+        } catch (error) {
+            throw error
+        }
+    }
 }
 
 const dbService = new DbServices();

@@ -3,8 +3,12 @@ import NavMenus from "./NavMenus";
 import NavActions from "./NavActions";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import authService from "../services/auth";
+import { authLogout } from "../store/authSlice";
+import { useDispatch } from "react-redux";
 
 const Nav = ({categories}) => {  
+  const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);
   const [toggleDropDown, setToggleDropDown] = useState(false);
   const [inputFocus, setInputFocus] = useState(false);
@@ -15,6 +19,11 @@ const Nav = ({categories}) => {
   const handleFocus = () => {
     setInputFocus((prev) => !prev);
   };
+  const logoutHandler = async () => {
+    authService.logout().then(() => {
+     dispatch(authLogout());
+    })
+ }
   return (
     <nav className="bg-white flex py-5 xl:py-0 w-full justify-between fixed top-0 items-center shadow-md p-5 xl:px-24 z-[1000] h-[10vh] gap-2 xl:gap-0">
       <h1 className="font-bold text-amber-800 text-lg md:text-2xl font-Sofadi">
@@ -79,15 +88,6 @@ const Nav = ({categories}) => {
               Profile
               <i className="fa-sharp-duotone fa-solid fa-user-tie text-lg text-gray-600"></i>
             </span>
-          )}
-          {!auth.loggedIn && (
-            <Link
-              to={"/login"}
-              onClick={() => setShowDrawer((prev) => !prev)}
-              className="text-amber-800 border-[1px] border-amber-800 font-semibold bg-gray-200 self-starts px-4 rounded-lg py-1"
-            >
-              LOGIN
-            </Link>
           )}
         </div>
 
@@ -161,6 +161,12 @@ const Nav = ({categories}) => {
               Blog
             </a>
           </li>
+          {auth.loggedIn && <li className="text-white text-center font-semibold border-[1px] p-2 rounded-md bg-amber-700" onClick={logoutHandler}>
+              Logout
+          </li>}
+          {!auth.loggedIn && <Link to={'/login'} className="text-white text-center font-semibold border-[1px] p-2 rounded-md bg-amber-700" onClick={logoutHandler}>
+              Login
+          </Link>}
         </ul>
       </div>
     </nav>
