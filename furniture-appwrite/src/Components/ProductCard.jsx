@@ -2,9 +2,14 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const ProductCard = (props) => {
+  function calculateDiscountPrice(originalPrice, discountPercentage) {
+    const discountAmount = (originalPrice * discountPercentage) / 100;
+    const discountPrice = originalPrice - discountAmount;
+    return discountPrice;
+}
   const [likedToggle, setLikedToggle] = useState(false);
   return (
-    <Link to={'/shop/product'} className="flex flex-col">
+    <Link to={`/shop/${props.slug}`} className="flex flex-col">
       <div className="h-[300px] relative">
         {likedToggle && (
           <i 
@@ -36,9 +41,9 @@ const ProductCard = (props) => {
         </div>
         <div className="flex justify-between items-center w-full mt-1">
           <div className="flex gap-2 items-center">
-            <span className="font-semibold text-lg">$ {props.price}</span>
+            <span className="font-semibold text-lg">$ {calculateDiscountPrice(props.price, props.discount)}</span>
             <span className="font-semibold text-sm text-gray-500 line-through">
-              $ 800
+              $ {props.price}
             </span>
           </div>
           <span className="text-green-600 font-semibold">

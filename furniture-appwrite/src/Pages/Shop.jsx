@@ -5,7 +5,15 @@ import { useSelector } from "react-redux";
 
 const Shop = () => {
   const [show, setShow] = useState(false);
-  const products = useSelector(state => state.products.allProducts);
+  let products = [];
+  const allProducts = useSelector(state => state.products.allProducts);
+  const filteredProducts = useSelector(state => state.products.filteredProducts);
+
+  if(filteredProducts.length > 0){
+    products = filteredProducts
+  }else{
+    products = allProducts
+  }
   
   return (
     <main className="mt-[17vh] px-5 lg:px-24 py-5">
@@ -13,7 +21,7 @@ const Shop = () => {
         <h1 className="text-2xl font-bold">
           Sofa Set{" "}
           <span className="text-base text-gray-500 font-normal">
-            - 200 items
+            - {products.length} items
           </span>
         </h1>
         <button onClick={() => {setShow(prev => !prev)}} className="flex items-center gap-2 bg-amber-700 text-white px-3 font-semibold py-1 rounded-md md:hidden">

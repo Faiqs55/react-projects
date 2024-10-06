@@ -1,8 +1,35 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { filterProducts } from "../store/productsSlice";
+import dbService from "../services/db";
 
 const Filter = ({ overlayShow }) => {
   const [range, setRange] = useState(0);
   const { show, setShow } = overlayShow;
+  const [filters, setFilters] = useState({});
+  const [categories, setCategories] = useState([]);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dbService.getCategories().then((res) => setCategories(res.documents));
+  }, []);
+
+  const inputChangeHandler = (e) => {
+    setFilters((prev) => {
+      return {
+        ...prev,
+        [e.target.name]: e.target.value,
+      };
+    });
+  };
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    dispatch(filterProducts(filters));
+    setShow((prev) => !prev);
+  };
+
   return (
     <div
       className={`md:w-[30%] p-4 h-fit min-h-[70vh] border-[1px] border-gray-300 rounded-lg fixed md:static top-24 left-[50%] translate-x-[-50%] md:translate-x-0 z-[110] md:z-0 bg-white sm:w-[50%] w-[80%] md:block ${
@@ -18,11 +45,14 @@ const Filter = ({ overlayShow }) => {
       </div>
       <div className="mt-5">
         <div>
-          <form className="flex flex-col gap-2">
+          <form className="flex flex-col gap-2" onSubmit={submitHandler}>
             <div className="">
               <h1 className="font-semibold text-xl mb-2">Sort By</h1>
               <div className="flex items-center gap-2">
                 <input
+                  onChange={(e) => {
+                    inputChangeHandler(e);
+                  }}
                   type="radio"
                   name="sort"
                   value={"lh"}
@@ -32,6 +62,9 @@ const Filter = ({ overlayShow }) => {
               </div>
               <div className="flex items-center gap-2">
                 <input
+                  onChange={(e) => {
+                    inputChangeHandler(e);
+                  }}
                   type="radio"
                   name="sort"
                   value={"hl"}
@@ -39,33 +72,19 @@ const Filter = ({ overlayShow }) => {
                 />
                 <label htmlFor="">Price - High to Low</label>
               </div>
-              <div className="flex items-center gap-2">
-                <input
-                  type="radio"
-                  name="sort"
-                  value={"l"}
-                  className="h-[15px] w-[15px]"
-                />
-                <label htmlFor="">Price - Latest</label>
-              </div>
-              <div className="flex items-center gap-2">
-                <input
-                  type="radio"
-                  name="sort"
-                  value={"p"}
-                  className="h-[15px] w-[15px]"
-                />
-                <label htmlFor="">Price - Popular</label>
-              </div>
             </div>
             <div className="mt-5">
               <h1 className="font-semibold text-xl mb-2">Price Range</h1>
               <div className="flex pr-3 mt-1 flex-col">
                 <div className="relative mb-6 w-full">
                   <input
-                    onChange={(e) => setRange(e.target.value)}
+                    onChange={(e) => {
+                      inputChangeHandler(e);
+                      setRange(e.target.value);
+                    }}
                     id="labels-range-input"
                     type="range"
+                    name="price"
                     value={range}
                     min="0"
                     max="1500"
@@ -82,9 +101,13 @@ const Filter = ({ overlayShow }) => {
                 <div className="border-2 border-gray-200 w-fit mt-2 self-center p-1 px-3 flex">
                   <span>$</span>
                   <input
+                    name="price"
+                    onChange={(e) => {
+                      inputChangeHandler(e);
+                      setRange(e.target.value);
+                    }}
                     type="text"
                     value={range}
-                    onChange={(e) => setRange(e.target.value)}
                     className="outline-none w-fit"
                   />
                 </div>
@@ -93,15 +116,22 @@ const Filter = ({ overlayShow }) => {
             <div className="mt-5">
               <h1 className="font-semibold text-xl mb-2">Category</h1>
               <select
+                name="category"
+                onChange={(e) => {
+                  inputChangeHandler(e);
+                }}
                 defaultValue={"Choose a Category"}
                 id="countries"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
               >
                 <option disabled>Choose a Category</option>
-                <option value="Sofa">Sofa</option>
-                <option value="Chair">Chair</option>
-                <option value="Bed">Bed</option>
-                <option value="Table">Table</option>
+                {categories.map((cat) => {
+                  return (
+                    <option key={cat.$id} value={cat.title}>
+                      {cat.title}
+                    </option>
+                  );
+                })}
               </select>
             </div>
             <button

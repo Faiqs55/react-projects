@@ -6,6 +6,7 @@ const SingleProductImg = ({ images, selectedImg, changeImg }) => {
       <div className="w-full sm:w-[80%] md:w-[60%] lg:w-[10%] flex lg:flex-col justify-center lg:justify-start gap-2 order-2 lg:order-1 self-center">
         {images.slice(0, 6).map((img) => (
           <img
+          key={img}
             onClick={() => {
               changeImg(img);
             }}
