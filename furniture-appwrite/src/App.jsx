@@ -7,20 +7,27 @@ import authService from "./services/auth";
 import { useEffect } from "react";
 import { authLogin, authLogout } from "./store/authSlice.js";
 import { useDispatch } from "react-redux";
+import dbService from "./services/db.js";
 
 const App = () => {
 
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
+  const [categories, setCategories] = useState([]);
   useEffect(()=> {    
     authService.getUser()
     .then(user => {
       if(user) dispatch(authLogin(user))
       else dispatch(authLogout);
     })
+    .then(() => {
+      dbService.getCategories()
+      .then(res => {
+        setCategories(res.documents);
+      }).catch(e => {throw e})
+    })
     .finally(() => {setLoading(false)});
-  }, [])
-  
+  }, [])  
 
   if(loading){
     return <div role="status">
@@ -45,7 +52,7 @@ const App = () => {
 
   return (
     <>
-      <Nav />
+      <Nav categories={categories} />
       <BreadCrumbs />
       <Outlet />
       <Footer />

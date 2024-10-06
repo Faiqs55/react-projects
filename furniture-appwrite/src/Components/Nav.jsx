@@ -4,7 +4,7 @@ import NavActions from "./NavActions";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-const Nav = () => {
+const Nav = ({categories}) => {  
   const auth = useSelector((state) => state.auth);
   const [toggleDropDown, setToggleDropDown] = useState(false);
   const [inputFocus, setInputFocus] = useState(false);
@@ -20,7 +20,7 @@ const Nav = () => {
       <h1 className="font-bold text-amber-800 text-lg md:text-2xl font-Sofadi">
         Urban Craft
       </h1>
-      <NavMenus toggleDropDown={toggleDropDown} toggleHandler={toggleHandler} />
+      <NavMenus categories={categories} toggleDropDown={toggleDropDown} toggleHandler={toggleHandler} />
       {auth.loggedIn && <NavActions />}
       {!auth.loggedIn && (
         <Link
